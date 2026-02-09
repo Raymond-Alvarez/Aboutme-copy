@@ -1,85 +1,90 @@
-alert("Welcome to the Guessing Game! 🎮");
-
-let user = prompt('what is your name?');
-
+alert("｡･:*:･ﾟ★｡ Welcome to the Guessing Game! ｡･:*:･ﾟ★｡");
+ 
+let user = prompt("What is your name?");
 
 while (!user) {
-  user = prompt('what is your name? I REALLY want to know... ')
+  user = prompt("What is your name? I REALLY want to know...");
 }
 
-// this is the not equals comparison operator
-if (user !== 'Naomi'){
-  alert('Hmm, Nice try!');
+// alert if they guess a specific name
+if (user.toLowerCase() === "naomi") {
+  alert("Hmm… nice try!");
 }
 
-alert('Hi' + user + '!I am so glad  you decided to visit my site.');
-
+alert("Hi " + user + "! I am so glad you decided to visit my site.");
 
 let score = 0;
 
+// reusable function for 3 attempts
+function askQuestion(question, correctAnswer) {
+  let attempts = 0;
+
+  while (attempts < 3) {
+    let guess = prompt(question);
+
+    if (guess && guess.toLowerCase() === correctAnswer) {
+      alert("Correct! ᯓ★");
+      return true;
+    } else {
+      attempts++;
+      if (attempts < 3) {
+        alert("Try again!");
+      } else {
+        alert("Nope! The correct answer was " + correctAnswer + ".");
+      }
+    }
+  }
+  return false;
+}
+
 // Question 1
-let q1 = prompt("Is Naomi a Morning person or night owl?");
-if (q1.toLowerCase() === "night owl") {
-  alert("Correct! 🌙");
+if (askQuestion("Is Naomi a morning person or night owl?", "night owl")) {
   score++;
-} else {
-  alert("Nope! The answer was Night Owl.");
 }
 
 // Question 2
-let q2 = prompt("Pineapple on pizza: yes or no?");
-if (q2.toLowerCase() === "yes") {
-  alert("Correct! 🍍🍕");
+if (askQuestion("Pineapple on pizza: yes or no?", "yes")) {
   score++;
-} else {
-  alert("Nope! Yes is the answer.");
 }
 
 // Question 3
-let q3 = prompt("Cats or dogs (or both)?");
-if (q3.toLowerCase() === "cats") {
-  alert("Correct! 🐱");
+if (askQuestion("Cats or dogs (or both)?", "cats")) {
   score++;
-} else {
-  alert("Nope! Cats was the answer.");
 }
 
-// Question 4
-let q4 = prompt("Guess a number from 1–5");
-if (Number(q4) === 3) {
-  alert("Correct! 🎯");
-  score++;
-} else {
-  alert("Nope! Try again!");
+// Question 4 (number question with 3 tries)
+let numberAttempts = 0;
+while (numberAttempts < 3) {
+  let q4 = prompt("Guess a number from 1–5");
+
+  if (Number(q4) === 3) {
+    alert("Correct! ᯓ★");
+    score++;
+    break;
+  } else {
+    numberAttempts++;
+    if (numberAttempts < 3) {
+      alert("Try again!");
+    } else {
+      alert("Nope! The correct number was 3.");
+    }
+  }
 }
 
 // Question 5
-let q5 = prompt("Sweet or salty?");
-if (q5.toLowerCase() === "salty") {
-  alert("Correct! 🧂");
+if (askQuestion("Sweet or salty?", "salty")) {
   score++;
-} else {
-  alert("Nope! Salty was the answer.");
 }
 
 // Question 6
-let q6 = prompt("Reading or audiobooks?");
-if (q6.toLowerCase() === "reading") {
-  alert("Correct! 📚");
+if (askQuestion("Reading or audiobooks?", "reading")) {
   score++;
-} else {
-  alert("Nope! Reading was the answer.");
 }
 
 // Question 7
-let q7 = prompt("Socks or barefoot?");
-if (q7.toLowerCase() === "barefoot") {
-  alert("Correct! 🦶");
+if (askQuestion("Socks or barefoot?", "barefoot")) {
   score++;
-} else {
-  alert("Nope! Barefoot was the answer.");
 }
 
 // Final score
-alert("Game over! 🎉 You got " + score + " out of 7 correct!");
-
+alert("Game over! ˙𐃷˙ You got " + score + " out of 7 correct!");

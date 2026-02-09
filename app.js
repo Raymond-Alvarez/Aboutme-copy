@@ -2,16 +2,22 @@ alert("｡･:*:･ﾟ★｡ Welcome to the Guessing Game! ｡･:*:･ﾟ★｡
  
 let user = prompt("What is your name?");
 
-while (!user) {
+while (!user || user.toLocaleLowerCase() === "naomi") {
+  if (!user) {
+
+  }
   user = prompt("What is your name? I REALLY want to know...");
+} else {
+  user = prompt("Hmm...Nice Try!");
 }
+
 
 // alert if they guess a specific name
 if (user.toLowerCase() === "naomi") {
   alert("Hmm… nice try!");
 }
 
-alert("Hi " + user + "! I am so glad you decided to visit my site.");
+alert("Hi " + user +  "! I am so glad you decided to visit my site.");
 
 let score = 0;
 

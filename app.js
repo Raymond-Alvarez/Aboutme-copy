@@ -5,9 +5,9 @@ alert("｡･:*:･ﾟ★｡ Welcome to the Guessing Game! ｡･:*:･ﾟ★｡
 
 while (!user || user.toLowerCase() === "naomi") {
   if (!user) {
-    user = prompt("What is your name? I REALLY want to know...");
+    let user = prompt("What is your name? I REALLY want to know...");
   } else if (user.toLowerCase() === "naomi") {
-    user = prompt("Hmm...Nice Try!");
+    let user = prompt("Hmm...Nice Try!");
   }
 }
 

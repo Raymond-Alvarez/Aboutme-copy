@@ -1,5 +1,8 @@
+'use strict';
+let userPoints = 0;
+
 alert("｡･:*:･ﾟ★｡ Welcome to the Guessing Game! ｡･:*:･ﾟ★｡");
- 
+
 while (!user || user.toLowerCase() === "naomi") {
   if (!user) {
     user = prompt("What is your name? I REALLY want to know...");
